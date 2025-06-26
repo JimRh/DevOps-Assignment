@@ -1,0 +1,20 @@
+version: "1.0.0"
+
+services: 
+  weatherapp:
+    image: weatherapp:latest
+    ports:
+      - 5000:5000
+    environment:
+      - .env
+
+
+
+        
+
+
+
+
+
+
+      
