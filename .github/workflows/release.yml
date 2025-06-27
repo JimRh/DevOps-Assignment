@@ -3,10 +3,12 @@ name: Release build
 on:
   release: 
     types: [published]
+  workflow_dispatch:
   
 jobs:
   build:
    runs-on: ubuntu-latest
+    
    steps:
     - name: checkout code
       uses: actions/checkout@v3
@@ -20,7 +22,7 @@ jobs:
    
    steps:
     - name: build docker image with release version
-      run: docker build -t weatherapp
+      run: docker build -t ${{secrets.Docker_Username}}/weatherapp:latest
 
    steps:
     - name: push image to dockerhub
