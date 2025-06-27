@@ -14,10 +14,10 @@ jobs:
       uses: actions/checkout@v3
     
     - name: build docker image with release version
-      run: docker build ${{secrets.Docker_Username}}/weatherapp:latest .
+      run: docker build -t ${{secrets.Docker_Username}}/weatherapp:latest .
 
     - name: login to docker hub
-      run: docker login -u ${{secrets.Docker_Username}} -p {{secrets.Docker_Password}}
+      run: docker login -u ${{secrets.Docker_Username}} -p ${{secrets.Docker_Password}}
 
  
     - name: push image to dockerhub
