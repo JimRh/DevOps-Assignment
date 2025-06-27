@@ -21,7 +21,7 @@ jobs:
 
  
     - name: push image to dockerhub
-      run: docker push ${{secrets.Docker_Username}}/weatherapp:latest
+      run: docker push ${{secrets.DOCKER_USERNAME}}/weatherapp:latest
 
 
 
