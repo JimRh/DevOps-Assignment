@@ -7,7 +7,7 @@ const port = 5000;
 app.use(express.json())
 
 const apikey=process.env.apikey
-const version=process.env.version
+const version=process.env.APP_VERSION
 function getYYMMDDHHmm() {
   const now = new Date();
 
