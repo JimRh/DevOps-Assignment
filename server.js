@@ -7,6 +7,7 @@ const port = 5000;
 app.use(express.json())
 
 const apikey=process.env.apikey
+const version=process.env.version
 function getYYMMDDHHmm() {
   const now = new Date();
 
@@ -65,7 +66,7 @@ app.get('/api/hello',async(req,res)=>{
     res.status(200).json({
        hostname:"server1",
        datetime:getYYMMDDHHmm(),
-       version:"1.0.0",
+       version:version,
        weather:{
          "dhaka":{
          temperature:resdata.main.temp,

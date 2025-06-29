@@ -1,20 +1,25 @@
 name: Release build test
 
 on:
-  push:
-    branches:
-      [main]
+  release:
+    types:
+      [published]
   
 jobs:
   build:
    runs-on: ubuntu-latest
+
+   env:
+      RELEASE_VERSION: ${{ github.event.release.tag_name }}
+    
+
     
    steps:
     - name: checkout code
       uses: actions/checkout@v3
     
     - name: build docker image with release version
-      run: docker build . -t ${{secrets.DOCKER_USERNAME}}/weatherapp:latest 
+      run: docker build . -t ${{secrets.DOCKER_USERNAME}}/weatherapp:$RELEASE_VERSION
     
       
     - name: login to docker hub
