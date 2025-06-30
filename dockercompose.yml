@@ -2,7 +2,7 @@ version: "1.0.0"
 
 services: 
   weatherapp:
-    image: weatherapp:latest
+    image: jimtestdockenv/weatherapp:1.0.2
     ports:
       - 5000:5000
     environment:
